@@ -6,3 +6,9 @@ log/
 .colcon/
 .colcon_install_layout
 .colcon_test_results/
+
+fk.cache
+helper_code/fk.cache
+
+*.cache
+

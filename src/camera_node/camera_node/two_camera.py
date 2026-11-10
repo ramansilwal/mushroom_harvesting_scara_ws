@@ -35,7 +35,7 @@ PUBLISH_DETECTIONS = True
 PROFILE_GPU = True
 
 # Single TensorRT segmentation model shared by both cameras.
-ENGINE_PATH = '/home/cotrobot/resources/yolo26s_640.engine'
+ENGINE_PATH = '/home/cotrobot/resources/latest.engine'
 
 
 class Camera(Node):
