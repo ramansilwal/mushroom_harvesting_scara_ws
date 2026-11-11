@@ -1,0 +1,480 @@
+<robot
+  name="robot_control">
+  <link
+    name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="PrismaticJointZ"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.3"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.19"
+      upper="0"
+      effort="5"
+      velocity="0.01" />
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="0.22558 8.8601E-07 0.034559"
+        rpy="0 0 0" />
+      <mass
+        value="1.3921" />
+      <inertia
+        ixx="0.0023969"
+        ixy="0"
+        ixz="0"
+        iyy="0.020922"
+        iyz="0"
+        izz="0.022324" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Angle1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0.5"
+      velocity="0.01" />
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="0.15992 -0.003251 0.031489"
+        rpy="0 0 0" />
+      <mass
+        value="0.82346" />
+      <inertia
+        ixx="0.00097691"
+        ixy="0.00011852"
+        ixz="-5.1942E-07"
+        iyy="0.006861"
+        iyz="7.7427E-08"
+        izz="0.0077311" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Angle2"
+    type="revolute">
+    <origin
+      xyz="0.325 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.35"
+      upper="2.35"
+      effort="0.5"
+      velocity="0.01" />
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="0.081298 0 0.0031854"
+        rpy="0 0 0" />
+      <mass
+        value="0.26408" />
+      <inertia
+        ixx="0.00013535"
+        ixy="1.0514E-15"
+        ixz="-6.7538E-06"
+        iyy="0.0010714"
+        iyz="2.6377E-17"
+        izz="0.0012047" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.84706 0.84706 0.84706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Angle3"
+    type="revolute">
+    <origin
+      xyz="0.275 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.35"
+      upper="2.35"
+      effort="0.5"
+      velocity="0.01" />
+  </joint>
+  
+  <link
+    name="gripper_base">
+    <inertial>
+      <origin
+        xyz="0 0 -0.0260183093277326"
+        rpy="0 0 0" />
+      <mass
+        value="0.141117006524258" />
+      <inertia
+        ixx="4.25057513922627E-05"
+        ixy="6.26711193622089E-14"
+        ixz="1.24399989908209E-13"
+        iyy="4.25057521933406E-05"
+        iyz="-6.9717451505908E-14"
+        izz="4.06101129946479E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/gripper_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/gripper_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GripperJoint"
+    type="fixed">
+    <origin
+      xyz="0.2625 0 0.00"
+      rpy="0 0 0" />
+    <parent
+      link="Link4" />
+    <child
+      link="gripper_base" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.507"
+      upper="1.507"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+  <link
+    name="G1">
+    <inertial>
+      <origin
+        xyz="-0.00817463418487539 -0.000749619730026553 -0.036869107115067"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987886598007678" />
+      <inertia
+        ixx="2.44226344454493E-06"
+        ixy="-6.56179534092328E-08"
+        ixz="7.26249066264972E-07"
+        iyy="3.95715478637953E-06"
+        iyz="-3.78845430644684E-08"
+        izz="2.01448096313555E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GripperJoint1"
+    type="revolute">
+    <origin
+      xyz="-0.0362777674951481 -0.00950160315817182 -0.0379249999961821"
+      rpy="1.57079632679489 0 0" />
+    <parent
+      link="gripper_base" />
+    <child
+      link="G1" />
+    <axis
+      xyz="0.499999999999994 0 -0.866025403784442" />
+    <limit
+      lower="-1.7"
+      upper="0"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+  <link
+    name="G2">
+    <inertial>
+      <origin
+        xyz="-0.02551399442828 -0.000749619730027212 -0.0278422662840602"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987886598007678" />
+      <inertia
+        ixx="2.96426796505278E-06"
+        ixy="-7.57690861289869E-08"
+        ixz="1.77889285035265E-07"
+        iyy="3.95715478637953E-06"
+        iyz="-3.85763753128362E-22"
+        izz="1.4924764426277E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GripperJoint2"
+    type="revolute">
+    <origin
+      xyz="0.0263675134592286 -0.0266666666642979 -0.0379249999961821"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="gripper_base" />
+    <child
+      link="G2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.7"
+      upper="0"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+  <link
+    name="G3">
+    <inertial>
+      <origin
+        xyz="-0.0255139944282799 -0.000749619730026935 -0.0278422662840602"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987886598007678" />
+      <inertia
+        ixx="2.96426796505279E-06"
+        ixy="-7.57690861289889E-08"
+        ixz="1.77889285035268E-07"
+        iyy="3.95715478637953E-06"
+        iyz="2.32441238522946E-20"
+        izz="1.49247644262771E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/resources/meshes/G3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GripperJoint3"
+    type="revolute">
+    <origin
+      xyz="0.0099102540359187 0.0361682698224692 -0.0379249999961821"
+      rpy="1.57079632679489 0 -2.61799387799149" />
+    <parent
+      link="gripper_base" />
+    <child
+      link="G3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.7"
+      upper="0"
+      effort="10"
+      velocity="0.1" />
+  </joint>
+</robot>

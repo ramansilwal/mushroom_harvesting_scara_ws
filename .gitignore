@@ -12,3 +12,6 @@ helper_code/fk.cache
 
 *.cache
 
+
+# Generated forward-kinematics cache (legacy misspelling)
+fk.cahce

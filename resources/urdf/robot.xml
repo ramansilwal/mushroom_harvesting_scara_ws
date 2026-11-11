@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="2160N0">
+  <!-- World -->
+  <worldbody>
+    <!-- Ground plane -->
+    <geom type="plane" size="3 3 .01" material="grid"/>
+    
+    <!-- Base body -->
+    <body pos="0 0 0.01">
+      <joint name="base_joint" type="hinge" pos="0 0 0" axis="0 0 1"/>
+      <geom name ="geom_base" type="mesh" mesh="base_link" mass="2"/>
+	      
+      <!-- Link body -->
+      <body pos="0.05635 0 0.05">
+        <joint name="Link" type="slide" pos="0 0 0.3" axis="0 0 1" range="0.005 0.35" solreffriction="0.5" springdamper="0.1 10"/>
+        <geom  name ="geom_Link1" type="mesh" mesh="Link1" mass=".5"/>
+
+	<body pos="0 0 0">
+        	<joint name="Link2_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-160 160" solreffriction="0.5" springdamper="0.5 50"/>
+        	<geom  name ="geom_Link2" type="mesh" mesh="Link2" mass=".5"/>
+<body pos="0.325 0 0">
+        	<joint name="Link3_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-160 160" solreffriction="0.5" springdamper="0.5 50"/>
+        	<geom  name ="geom_Link3" type="mesh" mesh="Link3" mass="1"/>
+          <body pos="0.28 0 0">
+        	    <joint name="Link4_joint" type="hinge" pos="0 0 0" axis="0 0 1" range="-160 160" solreffriction="0.5" springdamper="0.5 50"/>
+        	    <geom  name ="geom_Link4" type="mesh" mesh="Link4" mass="1"/>
+              <body pos="0.1725 0 0.005">
+        	    <joint name="Link5_joint" type="hinge" pos="0 0 0" axis="0 0 1" />
+        	    <geom  name ="geom_Link5" type="mesh" mesh="Link5" mass="1"/>
+      </body>
+      </body>
+      </body>
+
+      </body>
+
+	
+      </body>
+    </body>
+  </worldbody>
+
+
+<!-- Actuators -->
+<actuator>
+  <motor joint="base_joint" ctrlrange="-1 1" gear="100"/>
+  <intvelocity joint="Link" actrange="-1 1" kp="100" kv="1"/>
+  <motor joint="Link2_joint" ctrlrange="-0.1 0.1" gear="1" />
+<motor joint="Link3_joint" ctrlrange="-0.1 0.1" gear="1" />
+<motor joint="Link4_joint" ctrlrange="-0.1 0.1" gear="1" />
+</actuator>
+
+  <sensor>
+    <jointpos name="base_joint_pos" joint="base_joint"/>
+    <jointpos name="Link_pos" joint="Link"/>
+  </sensor>
+
+  <!-- Asset: Meshes -->
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="100 100" texuniform="true" reflectance=".2"/>
+    <mesh name="base_link" file="base_link.stl"/>
+    <mesh name="Link1" file="Link1.stl"/>
+ <mesh name="Link2" file="Link2.stl"/>
+
+<mesh name="Link3" file="Link3.stl"/>
+<mesh name="Link4" file="Link4.stl"/>
+<mesh name="Link5" file="Link5.stl"/>
+  </asset>
+
+ 
+
+  <!-- Global options -->
+<visual>
+<headlight  ambient="1 1 1" active="1"/>
+</visual> 
+</mujoco>
+
+
+
+
