@@ -8,7 +8,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/base_link.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -22,7 +22,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/base_link.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -34,7 +34,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link1.STL" />
       </geometry>
       <material
         name="">
@@ -48,7 +48,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -92,7 +92,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link2.STL" />
       </geometry>
       <material
         name="">
@@ -106,7 +106,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -150,7 +150,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link3.STL" />
       </geometry>
       <material
         name="">
@@ -164,7 +164,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link3.STL" />
       </geometry>
     </collision>
   </link>
@@ -208,7 +208,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link4.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link4.STL" />
       </geometry>
       <material
         name="">
@@ -222,7 +222,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/Link4.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link4.STL" />
       </geometry>
     </collision>
   </link>
@@ -267,7 +267,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/gripper_base.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
       </geometry>
       <material
         name="">
@@ -281,7 +281,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/gripper_base.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
       </geometry>
     </collision>
   </link>
@@ -325,7 +325,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G1.STL" />
       </geometry>
       <material
         name="">
@@ -339,7 +339,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G1.STL" />
       </geometry>
     </collision>
   </link>
@@ -383,7 +383,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G2.STL" />
       </geometry>
       <material
         name="">
@@ -397,7 +397,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G2.STL" />
       </geometry>
     </collision>
   </link>
@@ -441,7 +441,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G3.STL" />
       </geometry>
       <material
         name="">
@@ -455,7 +455,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/resources/meshes/G3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G3.STL" />
       </geometry>
     </collision>
   </link>

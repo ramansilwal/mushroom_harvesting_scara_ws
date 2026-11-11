@@ -84,7 +84,7 @@ class Camera(Node):
 
         # self.processed_image_publisher_ = self.create_publisher(ROSImage, "processed_image", 10)
         self.detected_img = self.create_publisher(ROSImage, "detected_img", 10)
-        self.depth_yolo_model = YOLO("/home/cotrobot/resources/mushroom_depth_yolo.pt")
+        self.depth_yolo_model = YOLO("/home/cotrobot/mushroom_harvesting_scara_ws/resources/mushroom_depth_yolo.pt")
         self.processed_image_publisher_ = self.create_publisher(ROSImage, "processed_image", 10)
         self.create_service(Trigger, "get_depth_image", self.get_depth_image)
         self.create_service(GetMushroom, "get_mushroom_location", self.get_mushroom)

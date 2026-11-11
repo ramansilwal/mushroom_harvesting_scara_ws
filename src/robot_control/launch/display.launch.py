@@ -13,7 +13,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    urdf_file_name = '/home/cotrobot/resources/urdf/2160N0_urdf.urdf'
+    urdf_file_name = '/home/cotrobot/mushroom_harvesting_scara_ws/resources/urdf/2160N0_urdf.urdf'
     urdf = os.path.join(
         get_package_share_directory('robot_control'),
         urdf_file_name)

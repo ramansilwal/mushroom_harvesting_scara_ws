@@ -18,7 +18,7 @@ from tqdm import tqdm
 from custom_interfaces.srv import RrtRequest
 
 
-ANGLE_PATH = '/home/cotrobot/resources/angle_cache/angles_pos.pkl'
+ANGLE_PATH = '/home/cotrobot/mushroom_harvesting_scara_ws/resources/angle_cache/angles_pos.pkl'
 ANGLE_LIMITS = np.array([
     [-np.pi / 2, np.pi / 2],
     [-3 * np.pi / 4, 3 * np.pi / 4],

@@ -24,7 +24,7 @@ angle_limits = np.array([
 ])
 
 
-angle_path="/home/cotrobot/resources/angle_cache/angles_pos.pkl"
+angle_path="/home/cotrobot/mushroom_harvesting_scara_ws/resources/angle_cache/angles_pos.pkl"
 if not os.path.exists(angle_path):
     # print("buliding kinematics tree")
     # random_angles=np.array([[np.random.uniform (*angle_limits[i]) for i in range(0,3)] for _ in tqdm(range(1_000_000))])

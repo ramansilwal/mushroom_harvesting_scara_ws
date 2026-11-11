@@ -35,7 +35,7 @@ PUBLISH_DETECTIONS = True
 PROFILE_GPU = True
 
 # Single TensorRT segmentation model shared by both cameras.
-ENGINE_PATH = '/home/cotrobot/resources/latest.engine'
+ENGINE_PATH = '/home/cotrobot/mushroom_harvesting_scara_ws/resources/latest.engine'
 
 
 class Camera(Node):

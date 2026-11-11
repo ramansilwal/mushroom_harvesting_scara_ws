@@ -37,7 +37,7 @@ class Camera(Node):
         self.detected_side_img = self.create_publisher(ROSImage, "detected_side_img", 10)
         
         
-        self.depth_yolo_model = YOLO("/home/cotrobot/resources/side_camera.pt")
+        self.depth_yolo_model = YOLO("/home/cotrobot/mushroom_harvesting_scara_ws/resources/side_camera.pt")
         # self.depth_yolo_model(np.zeros((320,480,3)))
         self.processed_image_publisher_ = self.create_publisher(ROSImage, "processed_image", 10)
         self.create_service(Trigger, "get_depth_image", self.get_depth_image)
