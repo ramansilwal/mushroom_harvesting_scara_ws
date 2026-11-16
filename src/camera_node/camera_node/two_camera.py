@@ -38,6 +38,37 @@ PROFILE_GPU = True
 ENGINE_PATH = '/home/cotrobot/mushroom_harvesting_scara_ws/resources/latest.engine'
 
 
+def custom_predict(self, source=None, min_mask_area=2000, stream=False, **kwargs):
+    """Filter segmentation results by polygon area in original-image pixels."""
+    def filter_results():
+        results = self.predict(source=source, stream=True, **kwargs)
+        for result in results:
+            if result.masks is None:
+                yield result
+                continue
+
+            h, w = result.orig_shape
+            keep_indices = []
+            for i, polygon in enumerate(result.masks.xy):
+                mask = np.zeros((h, w), dtype=np.uint8)
+                if len(polygon) >= 3:
+                    cv2.fillPoly(mask, [polygon.astype(np.int32)], 1)
+                if np.count_nonzero(mask) >= min_mask_area:
+                    keep_indices.append(i)
+
+            result.update(
+                boxes=result.boxes.data[keep_indices],
+                masks=result.masks.data[keep_indices],
+            )
+            yield result
+
+    generator = filter_results()
+    return generator if stream else list(generator)
+
+
+YOLO.custom_predict = custom_predict
+
+
 class Camera(Node):
     def __init__(self):
         super().__init__('camera_node')
@@ -288,7 +319,7 @@ class Camera(Node):
         self._sync()
         t1 = time.perf_counter()
         with torch.inference_mode():
-            result = self.yolo_model.predict(color, imgsz=YOLO_IMAGE_SIZE,
+            result = self.yolo_model.custom_predict(color, imgsz=YOLO_IMAGE_SIZE,
                                                  conf=TOP_CONFIDENCE, device=0,
                                                  verbose=False)[0]
         self._sync()

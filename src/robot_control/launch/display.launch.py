@@ -72,11 +72,11 @@ def generate_launch_description():
             executable='laser_process_node',
             name='laser_process_node',
             output='screen',),
-        Node(
-            package='RRT',
-            executable='run_rrt',
-            name='RRT',
-            output='screen',),
+        # Node(
+        #     package='RRT',
+        #     executable='run_rrt',
+        #     name='RRT',
+        #     output='screen',),
         
             
         # Node(
