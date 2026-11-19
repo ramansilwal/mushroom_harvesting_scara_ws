@@ -180,9 +180,9 @@ class Gripper(Node):
         self.get_logger().info("opening gripper completed")
     def timer_callback(self):
         msg=GripperAngle()
-        msg.angle1 = float(np.deg2rad(-self.angle1))
-        msg.angle2 = float(np.deg2rad(-self.angle2))
-        msg.angle3 = float(np.deg2rad(-self.angle3))
+        msg.angle1 = float(np.deg2rad(self.angle1))
+        msg.angle2 = float(np.deg2rad(self.angle2))
+        msg.angle3 = float(np.deg2rad(self.angle3))
         # self.get_logger().info(f"publishing {msg.angle1},{msg.angle2},{msg.angle3}")
         self.angle_publisher.publish(msg)
 

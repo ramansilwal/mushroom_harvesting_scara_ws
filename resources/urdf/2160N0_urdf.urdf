@@ -1,7 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="robot_control">
   <link
     name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.15459180812163 -0.00106124645990265 -0.200275184210496"
+        rpy="0 0 0" />
+      <mass
+        value="5.20454741280063" />
+      <inertia
+        ixx="0.208706502575771"
+        ixy="0.000112641781277295"
+        ixz="0.00657672148396632"
+        iyy="0.208792338352192"
+        iyz="-0.000480437942395106"
+        izz="0.0247304944654268" />
+    </inertial>
     <visual>
       <origin
         xyz="0 0 0"
@@ -13,7 +31,7 @@
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -27,19 +45,33 @@
     </collision>
   </link>
   <link
-    name="Link1">
+    name="prismatic_joint">
+    <inertial>
+      <origin
+        xyz="-0.0418452855746085 6.54936629092738E-06 0.466735865677498"
+        rpy="0 0 0" />
+      <mass
+        value="1.10784568018321" />
+      <inertia
+        ixx="0.00142274684789989"
+        ixy="-2.16698579667382E-07"
+        ixz="-6.82014113978619E-05"
+        iyy="0.00407145111728315"
+        iyz="-2.12677217470367E-07"
+        izz="0.00463818756657273" />
+    </inertial>
     <visual>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/prismatic_joint.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -48,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/prismatic_joint.STL" />
       </geometry>
     </collision>
   </link>
@@ -56,35 +88,35 @@
     name="PrismaticJointZ"
     type="prismatic">
     <origin
-      xyz="0 0 0.3"
+      xyz="-0.0101492851649773 0 -0.450899999990344"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="Link1" />
+      link="prismatic_joint" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.19"
+      lower="-0.2"
       upper="0"
-      effort="5"
-      velocity="0.01" />
+      effort="10"
+      velocity="10" />
   </joint>
   <link
-    name="Link2">
+    name="r1_link">
     <inertial>
       <origin
-        xyz="0.22558 8.8601E-07 0.034559"
+        xyz="0.165136631075511 1.10088908052874E-07 0.0379902348386392"
         rpy="0 0 0" />
       <mass
-        value="1.3921" />
+        value="3.37829281727696" />
       <inertia
-        ixx="0.0023969"
-        ixy="0"
-        ixz="0"
-        iyy="0.020922"
-        iyz="0"
-        izz="0.022324" />
+        ixx="0.00462701646354125"
+        ixy="4.61991124688512E-08"
+        ixz="0.000294067869686114"
+        iyy="0.049289731919888"
+        iyz="9.87785075952344E-10"
+        izz="0.0506671945540118" />
     </inertial>
     <visual>
       <origin
@@ -92,12 +124,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r1_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -106,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r1_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -114,35 +146,35 @@
     name="Angle1"
     type="revolute">
     <origin
-      xyz="0 0 0"
+      xyz="0.0101492851649774 0 0.375399999990331"
       rpy="0 0 0" />
     <parent
-      link="Link1" />
+      link="prismatic_joint" />
     <child
-      link="Link2" />
+      link="r1_link" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="0.5"
-      velocity="0.01" />
+      lower="-1.7"
+      upper="1.7"
+      effort="10"
+      velocity="10" />
   </joint>
   <link
-    name="Link3">
+    name="r2_link">
     <inertial>
       <origin
-        xyz="0.15992 -0.003251 0.031489"
+        xyz="0.11928072490119 -0.00240228710767683 0.0207078753473428"
         rpy="0 0 0" />
       <mass
-        value="0.82346" />
+        value="3.89153566496274" />
       <inertia
-        ixx="0.00097691"
-        ixy="0.00011852"
-        ixz="-5.1942E-07"
-        iyy="0.006861"
-        iyz="7.7427E-08"
-        izz="0.0077311" />
+        ixx="0.00375400533566855"
+        ixy="0.000590027019183508"
+        ixz="0.000535790769502765"
+        iyy="0.0333140408837457"
+        iyz="-1.01969547127287E-05"
+        izz="0.0360770512511862" />
     </inertial>
     <visual>
       <origin
@@ -150,12 +182,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r2_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="1 1 1 1" />
       </material>
     </visual>
     <collision>
@@ -164,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r2_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -172,35 +204,35 @@
     name="Angle2"
     type="revolute">
     <origin
-      xyz="0.325 0 0"
+      xyz="0.325 0 -0.0479999999999866"
       rpy="0 0 0" />
     <parent
-      link="Link2" />
+      link="r1_link" />
     <child
-      link="Link3" />
+      link="r2_link" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-2.35"
-      upper="2.35"
-      effort="0.5"
-      velocity="0.01" />
+      lower="-2"
+      upper="2"
+      effort="10"
+      velocity="10" />
   </joint>
   <link
-    name="Link4">
+    name="r3_link">
     <inertial>
       <origin
-        xyz="0.081298 0 0.0031854"
+        xyz="0.0666454569982321 1.38479554190477E-05 -0.0100000000000012"
         rpy="0 0 0" />
       <mass
-        value="0.26408" />
+        value="0.176" />
       <inertia
-        ixx="0.00013535"
-        ixy="1.0514E-15"
-        ixz="-6.7538E-06"
-        iyy="0.0010714"
-        iyz="2.6377E-17"
-        izz="0.0012047" />
+        ixx="1.17333333333334E-05"
+        ixy="-2.30209235847708E-19"
+        ixz="1.41667319165497E-17"
+        iyy="0.000715733333333339"
+        iyz="-7.097996370123E-23"
+        izz="0.000715733333333339" />
     </inertial>
     <visual>
       <origin
@@ -208,12 +240,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link4.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r3_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.84706 0.84706 0.84706 1" />
+          rgba="0.192156862745098 0.203921568627451 0.203921568627451 1" />
       </material>
     </visual>
     <collision>
@@ -222,7 +254,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/Link4.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/r3_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -230,36 +262,35 @@
     name="Angle3"
     type="revolute">
     <origin
-      xyz="0.275 0 0"
+      xyz="0.275637253776456 -0.00551384795503279 -0.0119000000000001"
       rpy="0 0 0" />
     <parent
-      link="Link3" />
+      link="r2_link" />
     <child
-      link="Link4" />
+      link="r3_link" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-2.35"
-      upper="2.35"
-      effort="0.5"
-      velocity="0.01" />
+      lower="-2"
+      upper="2"
+      effort="10"
+      velocity="10" />
   </joint>
-  
   <link
-    name="gripper_base">
+    name="laser_base">
     <inertial>
       <origin
-        xyz="0 0 -0.0260183093277326"
+        xyz="-0.000257393348371604 -0.000128658849719359 0.0252136333542118"
         rpy="0 0 0" />
       <mass
-        value="0.141117006524258" />
+        value="0.111851424882413" />
       <inertia
-        ixx="4.25057513922627E-05"
-        ixy="6.26711193622089E-14"
-        ixz="1.24399989908209E-13"
-        iyy="4.25057521933406E-05"
-        iyz="-6.9717451505908E-14"
-        izz="4.06101129946479E-05" />
+        ixx="4.46321186368274E-05"
+        ixy="-3.34052643812914E-12"
+        ixz="-3.1106130380739E-14"
+        iyy="3.24720282949754E-05"
+        iyz="2.15331079895788E-11"
+        izz="5.7511533783429E-05" />
     </inertial>
     <visual>
       <origin
@@ -267,7 +298,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/laser_base.STL" />
       </geometry>
       <material
         name="">
@@ -281,43 +312,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/laser_base.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="GripperJoint"
+    name="laser"
     type="fixed">
     <origin
-      xyz="0.2625 0 0.00"
+      xyz="0.00114545699823099 1.38479554208613E-05 -0.0599999999999956"
       rpy="0 0 0" />
     <parent
-      link="Link4" />
+      link="r3_link" />
     <child
-      link="gripper_base" />
+      link="laser_base" />
     <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-1.507"
-      upper="1.507"
-      effort="10"
-      velocity="0.1" />
+      xyz="0 0 0" />
   </joint>
   <link
-    name="G1">
+    name="gripper_base">
     <inertial>
       <origin
-        xyz="-0.00817463418487539 -0.000749619730026553 -0.036869107115067"
+        xyz="-0.012491539993959 -1.98485212683994E-05 -0.0230771821760262"
         rpy="0 0 0" />
       <mass
-        value="0.00987886598007678" />
+        value="0.242178356800553" />
       <inertia
-        ixx="2.44226344454493E-06"
-        ixy="-6.56179534092328E-08"
-        ixz="7.26249066264972E-07"
-        iyy="3.95715478637953E-06"
-        iyz="-3.78845430644684E-08"
-        izz="2.01448096313555E-06" />
+        ixx="0.000136946433053418"
+        ixy="1.71452140224145E-07"
+        ixz="-1.86990240562457E-05"
+        iyy="0.000190538004974657"
+        iyz="3.0074737429108E-08"
+        izz="0.000233890104331757" />
     </inertial>
     <visual>
       <origin
@@ -325,7 +351,60 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/gripper_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_base"
+    type="fixed">
+    <origin
+      xyz="0.26425 0 0.0155"
+      rpy="0 0 0" />
+    <parent
+      link="r3_link" />
+    <child
+      link="gripper_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="g1">
+    <inertial>
+      <origin
+        xyz="-0.0258684317418646 0.000435659915817233 -0.0266525795739494"
+        rpy="0 0 0" />
+      <mass
+        value="0.0106588178532176" />
+      <inertia
+        ixx="3.06665231469336E-06"
+        ixy="-6.96880872474899E-08"
+        ixz="1.77889190065398E-07"
+        iyy="3.93132045588594E-06"
+        iyz="3.39054570290537E-13"
+        izz="1.54024663769505E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g1.STL" />
       </geometry>
       <material
         name="">
@@ -339,7 +418,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G1.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g1.STL" />
       </geometry>
     </collision>
   </link>
@@ -347,35 +426,35 @@
     name="GripperJoint1"
     type="revolute">
     <origin
-      xyz="-0.0362777674951481 -0.00950160315817182 -0.0379249999961821"
-      rpy="1.57079632679489 0 0" />
+      xyz="0.00442431184428949 -0.0447234344081875 -0.039175"
+      rpy="1.5707963267949 0 1.04719755119659" />
     <parent
       link="gripper_base" />
     <child
-      link="G1" />
+      link="g1" />
     <axis
-      xyz="0.499999999999994 0 -0.866025403784442" />
+      xyz="0 0 1" />
     <limit
-      lower="-1.7"
-      upper="0"
+      lower="0"
+      upper="2"
       effort="10"
-      velocity="0.1" />
+      velocity="10" />
   </joint>
   <link
-    name="G2">
+    name="g2">
     <inertial>
       <origin
-        xyz="-0.02551399442828 -0.000749619730027212 -0.0278422662840602"
+        xyz="-0.0258684317418703 0.000435659915816511 -0.0266525795739497"
         rpy="0 0 0" />
       <mass
-        value="0.00987886598007678" />
+        value="0.0106588178532206" />
       <inertia
-        ixx="2.96426796505278E-06"
-        ixy="-7.57690861289869E-08"
-        ixz="1.77889285035265E-07"
-        iyy="3.95715478637953E-06"
-        iyz="-3.85763753128362E-22"
-        izz="1.4924764426277E-06" />
+        ixx="3.0666523146935E-06"
+        ixy="-6.96880872475711E-08"
+        ixz="1.77889190065265E-07"
+        iyy="3.93132045588622E-06"
+        iyz="3.39054527258106E-13"
+        izz="1.54024663769532E-06" />
     </inertial>
     <visual>
       <origin
@@ -383,7 +462,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g2.STL" />
       </geometry>
       <material
         name="">
@@ -397,7 +476,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G2.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g2.STL" />
       </geometry>
     </collision>
   </link>
@@ -405,35 +484,35 @@
     name="GripperJoint2"
     type="revolute">
     <origin
-      xyz="0.0263675134592286 -0.0266666666642979 -0.0379249999961821"
-      rpy="1.5707963267949 0 1.5707963267949" />
+      xyz="0.0363283242919332 0.0262836989389544 -0.039175"
+      rpy="1.5707963267949 0 3.14159265358979" />
     <parent
       link="gripper_base" />
     <child
-      link="G2" />
+      link="g2" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="-1.7"
-      upper="0"
+      lower="0"
+      upper="2"
       effort="10"
-      velocity="0.1" />
+      velocity="10" />
   </joint>
   <link
-    name="G3">
+    name="g3">
     <inertial>
       <origin
-        xyz="-0.0255139944282799 -0.000749619730026935 -0.0278422662840602"
+        xyz="-0.0258684317418585 0.000435659915817954 -0.026652579573948"
         rpy="0 0 0" />
       <mass
-        value="0.00987886598007678" />
+        value="0.0106588178532144" />
       <inertia
-        ixx="2.96426796505279E-06"
-        ixy="-7.57690861289889E-08"
-        ixz="1.77889285035268E-07"
-        iyy="3.95715478637953E-06"
-        iyz="2.32441238522946E-20"
-        izz="1.49247644262771E-06" />
+        ixx="3.06665231469322E-06"
+        ixy="-6.96880872474163E-08"
+        ixz="1.77889190065542E-07"
+        iyy="3.9313204558856E-06"
+        iyz="3.39054632173753E-13"
+        izz="1.5402466376948E-06" />
     </inertial>
     <visual>
       <origin
@@ -441,7 +520,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g3.STL" />
       </geometry>
       <material
         name="">
@@ -455,7 +534,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/G3.STL" />
+          filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/g3.STL" />
       </geometry>
     </collision>
   </link>
@@ -463,18 +542,18 @@
     name="GripperJoint3"
     type="revolute">
     <origin
-      xyz="0.0099102540359187 0.0361682698224692 -0.0379249999961821"
-      rpy="1.57079632679489 0 -2.61799387799149" />
+      xyz="-0.0411176632604224 0.0184098175276984 -0.0391750000000001"
+      rpy="1.5707963267949 0 -1.04719755119661" />
     <parent
       link="gripper_base" />
     <child
-      link="G3" />
+      link="g3" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="-1.7"
-      upper="0"
+      lower="0"
+      upper="2"
       effort="10"
-      velocity="0.1" />
+      velocity="10" />
   </joint>
 </robot>

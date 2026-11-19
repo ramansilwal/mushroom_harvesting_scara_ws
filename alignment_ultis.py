@@ -6,6 +6,33 @@ import rclpy
 import tf2_ros
 from scipy.spatial.transform import Rotation as R
 
+def forward_kinematics(angles, lengths):
+    """
+    Forward kinematics for a 3-DOF planar robotic arm.
+
+    Parameters
+    ----------
+    angles : array-like, shape (3,)
+        Joint angles in radians.
+    length : array-like, shape (3,)
+        Link lengths in meters.
+
+    Returns
+    -------
+    np.ndarray, shape (4, 2)
+        Coordinates of base, joint 1, joint 2, and end effector.
+    """
+
+    theta = np.cumsum(angles)
+
+    x = np.cumsum(lengths * np.cos(theta))
+    y = np.cumsum(lengths * np.sin(theta))
+
+    return np.vstack([
+        [0.0, 0.0],
+        np.column_stack((x, y))
+    ])
+
 def transform_mushroom_to_global(picked_mushroom,T):
     if T is None:
         T=get_transform()
