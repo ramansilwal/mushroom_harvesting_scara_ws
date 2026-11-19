@@ -277,7 +277,7 @@
       velocity="10" />
   </joint>
   <link
-    name="laser_base">
+    name="laser">
     <inertial>
       <origin
         xyz="-0.000257393348371604 -0.000128658849719359 0.0252136333542118"
@@ -295,7 +295,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 -3.14159 0" />
       <geometry>
         <mesh
           filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/laser_base.STL" />
@@ -309,26 +309,22 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 -3.14159 0" />
       <geometry>
         <mesh
           filename="file:///home/cotrobot/mushroom_harvesting_scara_ws/resources/meshes/laser_base.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="laser"
-    type="fixed">
+<joint name="laser_joint" type="fixed">
     <origin
-      xyz="0.00114545699823099 1.38479554208613E-05 -0.0599999999999956"
-      rpy="0 0 0" />
-    <parent
-      link="r3_link" />
-    <child
-      link="laser_base" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
+        xyz="0.001 0 -0.06"
+        rpy="0 3.14159 0" />
+    <parent link="r3_link" />
+    <child link="laser" />
+</joint>
+
+
   <link
     name="gripper_base">
     <inertial>

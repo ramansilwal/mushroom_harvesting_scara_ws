@@ -104,6 +104,12 @@ class Camera(Node):
         if self.device != 'cuda':
             raise RuntimeError('TensorRT .engine inference requires an NVIDIA CUDA GPU')
         self.yolo_model = YOLO(ENGINE_PATH, task='segment')
+        # Ultralytics creates its output directory even when saving is disabled.
+        # Reuse the current directory so prediction creates no runs/segment tree.
+        self.yolo_model.overrides.update(
+            project='.', name='.', exist_ok=True,
+            save=False, save_txt=False, save_crop=False,
+        )
         self._warm_up()
 
         self.create_service(Trigger, 'get_depth_image', self.get_depth_image)
